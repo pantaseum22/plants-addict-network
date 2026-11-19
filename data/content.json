@@ -1,0 +1,58 @@
+{
+  "revision": 1,
+  "settings": {
+    "title": "PLANTS ADDICT NETWORK | 食虫植物・3Dプリント鉢・アート",
+    "description": "植物に魅了されたすべての人へ。食虫植物、3Dプリント鉢、アパレル、植物アートを紹介するPLANTS ADDICT NETWORK。",
+    "hero": "植物に魅了されたすべての人へ",
+    "about": "植物が、日常を少し特別にする。",
+    "contact": "",
+    "googleVerification": ""
+  },
+  "products": [
+    {
+      "id": 1,
+      "name": "ハエトリソウ レッドジャイアント",
+      "price": 3800,
+      "cat": "plants",
+      "img": "/assets/flytrap.webp",
+      "tag": "NEW",
+      "description": "ハエトリソウ レッドジャイアントのサンプル掲載です。商品詳細は準備中です。"
+    },
+    {
+      "id": 2,
+      "name": "3Dプリント鉢 - RUGGED -",
+      "price": 4500,
+      "cat": "pots",
+      "img": "/assets/pot.webp",
+      "tag": "HOT",
+      "description": "3Dプリント鉢 - RUGGED -のサンプル掲載です。商品詳細は準備中です。"
+    },
+    {
+      "id": 3,
+      "name": "PAN ロゴTシャツ（ブラック）",
+      "price": 4200,
+      "cat": "apparel",
+      "img": "/assets/shirt.webp",
+      "tag": "NEW",
+      "description": "PAN ロゴTシャツ（ブラック）のサンプル掲載です。商品詳細は準備中です。"
+    },
+    {
+      "id": 4,
+      "name": "アートプリント「FEED」",
+      "price": 2800,
+      "cat": "art",
+      "img": "/assets/print.webp",
+      "tag": "",
+      "description": "アートプリント「FEED」のサンプル掲載です。商品詳細は準備中です。"
+    },
+    {
+      "id": 5,
+      "name": "ネペンテス・ミックス",
+      "price": 6800,
+      "cat": "plants",
+      "img": "/assets/nepenthes.webp",
+      "tag": "LIMITED",
+      "description": "ネペンテス・ミックスのサンプル掲載です。商品詳細は準備中です。"
+    }
+  ]
+}
