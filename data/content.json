@@ -1,11 +1,11 @@
 {
-  "revision": 1,
+  "revision": 2,
   "settings": {
-    "title": "PLANTS ADDICT NETWORK | 食虫植物・3Dプリント鉢・アート",
-    "description": "植物に魅了されたすべての人へ。食虫植物、3Dプリント鉢、アパレル、植物アートを紹介するPLANTS ADDICT NETWORK。",
+    "title": "PLANTS ADDICT NETWORK | 食虫植物・作家鉢・アート",
+    "description": "植物に魅了されたすべての人へ。食虫植物、作家鉢、アパレル、植物アートを紹介するPLANTS ADDICT NETWORK。",
     "hero": "植物に魅了されたすべての人へ",
     "about": "植物が、日常を少し特別にする。",
-    "contact": "",
+    "contact": "pantaseum22@gmail.com",
     "googleVerification": ""
   },
   "products": [
@@ -53,6 +53,41 @@
       "img": "/assets/nepenthes.webp",
       "tag": "LIMITED",
       "description": "ネペンテス・ミックスのサンプル掲載です。商品詳細は準備中です。"
+    },
+    {
+      "id": 1795075331103,
+      "name": "ペガニア ヴァンケルコウェニー",
+      "price": 3000,
+      "cat": "plants",
+      "img": "/uploads/87e1bfc3-4dd0-4d02-ae45-81e25458a34a.jpg",
+      "tag": "BEGONIA",
+      "description": "プレ"
+    }
+  ],
+  "articles": [
+    {
+      "id": 1,
+      "title": "食虫植物の育て方ガイド",
+      "excerpt": "植物との暮らしを楽しむヒント。",
+      "body": "",
+      "img": "/assets/journal-1.webp",
+      "date": ""
+    },
+    {
+      "id": 2,
+      "title": "3Dプリント鉢のこだわり",
+      "excerpt": "機能性と造形の両立を目指して。",
+      "body": "",
+      "img": "/assets/journal-2.webp",
+      "date": ""
+    },
+    {
+      "id": 3,
+      "title": "イラストに込めた想い",
+      "excerpt": "植物の魅力を、別のかたちで。",
+      "body": "",
+      "img": "/assets/journal-3.webp",
+      "date": ""
     }
   ]
 }
