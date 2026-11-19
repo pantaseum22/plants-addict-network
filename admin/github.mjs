@@ -1,4 +1,4 @@
-import {renderSite,validate} from './site.mjs';
+import {renderSite,validate} from './site.mjs?v=journal-1';
 import {addImage} from './images.mjs';
 const fail=(status,message)=>{throw Object.assign(new Error(message),{status});};
 const decode=value=>new TextDecoder().decode(Uint8Array.from(atob(value.replace(/\s/g,'')),c=>c.charCodeAt(0)));
@@ -25,14 +25,17 @@ export function createStore(config,transport=fetch){
  async function save(input){
   const next=validate(input);if(!loadedSHA)fail(409,'再読み込み後に保存してください。');
   const head=await api(`/git/ref/heads/${encodeURIComponent(config.branch)}`),parent=head.object.sha;
-  const currentFile=await file('data/content.json',parent),current=JSON.parse(currentFile.text);
+  const currentFile=await file('data/content.json',parent),current=validate(JSON.parse(currentFile.text));
   if(currentFile.sha!==loadedSHA||next.revision!==current.revision)fail(409,'別の画面で更新されました。再読み込み後に変更をやり直してください。');
   const template=await file('templates/storefront.html',parent),commit=await api(`/git/commits/${parent}`);
   next.revision++;
   const files=renderSite(template.text,next,config),entries=Object.entries(files).map(([path,content])=>({path,mode:'100644',type:'blob',content}));
-  const used=new Set(next.products.map(p=>p.img));
+  const used=new Set([...next.products,...next.articles].map(p=>p.img));
   for(const [url,bytes] of images){if(!used.has(url))continue;const blob=await api('/git/blobs',{method:'POST',body:JSON.stringify({encoding:'base64',content:encode(bytes)})});entries.push({path:url.slice(1),mode:'100644',type:'blob',sha:blob.sha});}
   for(const p of current.products)if(!next.products.some(n=>n.id===p.id))entries.push({path:`products/${p.id}/index.html`,mode:'100644',type:'blob',sha:null});
+  // 旧データに記事がない場合、既存の静的記事URLは存在しないので削除しない。
+  const previousArticles=JSON.parse(currentFile.text).articles||[];
+  for(const a of previousArticles)if(!next.articles.some(n=>n.id===a.id))entries.push({path:`journal-${a.id}.html`,mode:'100644',type:'blob',sha:null});
   const tree=await api('/git/trees',{method:'POST',body:JSON.stringify({base_tree:commit.tree.sha,tree:entries})});
   const created=await api('/git/commits',{method:'POST',body:JSON.stringify({message:'Update PAN products and site content',tree:tree.sha,parents:[parent]})});
   try{await api(`/git/refs/heads/${encodeURIComponent(config.branch)}`,{method:'PATCH',body:JSON.stringify({sha:created.sha,force:false})});}
